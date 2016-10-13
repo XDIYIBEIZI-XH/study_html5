@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 演示本地存储localStorage,存储的数据是永久性的 -->
+	
+	<!-- 一个用来计数的按钮 -->
+	<button onclick="onclicks();" type="button">check me!</button>
+	
+	<!-- 计数的文本域 -->
+	<div id="result">
+		Please check the button.
+	</div>
+	<!-- 点击按钮事件 -->
+	<script type="text/javascript">
+		onclicks = function(){
+			/*判断浏览器是否支持web存储*/
+			if(typeof(Storage) !== "undefined"){
+				//如果有count，直接自加1，如果没有，赋值为1.
+				if(localStorage.count){
+					//需要把count转成Number类型的，否则会成为字符串
+					localStorage.count = Number(localStorage.count) + 1;
+				}else{
+					localStorage.count = 1;
+				}
+				document.getElementById("result").innerHTML = "you check " + localStorage.count + " times";
+			}else{
+				document.getElementById("result").innerHTML = "sorry, your brower don't support web Storage";
+			}	
+		}
+	</script>
+</body>
+</html>

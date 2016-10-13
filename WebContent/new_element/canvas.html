@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<base href="http://localhost:8080/study_html5/">
+</head>
+<body>
+	<!-- 图片 -->
+	<img id="1.jpg" alt="this is a jpg" src="images/1.jpg" width="300" height="200">
+	
+	<!-- 创建画布 -->
+	<canvas id="rect" width="300" height="200" style="border:1px  solid #c3c3c3;">
+	</canvas>
+	<canvas id="img" width="300" height="200" style="border:1px  solid #c3c3c3;">
+	</canvas>
+	
+	
+	<!-- canvas本身没有画图能力，所以要在JavaScript中完成 -->
+	<!-- 画矩形 -->
+	<script type="text/javascript">
+		/*得到画布，通过画布得到2d画笔，然后画图*/
+		var canvas1 = document.getElementById("rect");
+		var ctx = canvas1.getContext("2d");
+		ctx.fillStyle="#FF0000";
+		ctx.fillRect(0,0,150,75);
+	</script>
+	
+	<!-- 在canvas添加图片 -->
+	<script type="text/javascript">
+		var canvas2 = document.getElementById("img");
+		var ctx = canvas2.getContext("2d");
+		var img = document.getElementById("1.jpg");
+		img.onload = function(){
+			ctx.drawImage(img,10,10);
+		}
+	</script>
+</body>
+</html>

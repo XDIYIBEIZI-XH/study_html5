@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+	<!-- 演示sessionStorage,特点：当该网页关闭时，存储的值会消失 -->
+	<button onclick="onclicks();" type="button">check me!</button>
+	<div id="result">
+		please check me!
+	</div>
+	
+	<!-- JavaScript代码，实现onclicks函数 -->
+	<script type="text/javascript">
+		onclicks = function(){
+			/*判断浏览器是否支持Storage*/
+			if(typeof(Storage) !== "undefined"){
+				/*判断count是否存在，不存在创建赋值为1*/
+				if(sessionStorage.count){
+					sessionStorage.count = Number(sessionStorage.count) + 1;
+				}else{
+					sessionStorage.count = 1;
+				}
+				document.getElementById("result").innerHTML = "you check " + sessionStorage.count + " times";
+			}else{
+				document.getElementById("result").innerHTML = "sorry, your brower ...."
+			}
+		}
+	</script>
+</body>
+</html>
